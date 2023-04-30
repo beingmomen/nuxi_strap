@@ -1,0 +1,25 @@
+{
+  "name": "nuxi-strap",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-28020728.5df24eb",
+    "@nuxtjs/tailwindcss": "^6.6.7",
+    "@pinia/nuxt": "^0.4.9",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/node": "^18",
+    "@vueuse/nuxt": "^10.1.0",
+    "daisyui": "^2.51.6",
+    "flowbite": "^1.6.5",
+    "nuxt": "^3.4.3",
+    "nuxt-headlessui": "^1.1.4",
+    "pinia": "^2.0.35"
+  }
+}
