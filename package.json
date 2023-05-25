@@ -10,16 +10,35 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/image": "^0.7.1",
     "@nuxt/image-edge": "^1.0.0-28020728.5df24eb",
     "@nuxtjs/tailwindcss": "^6.6.7",
     "@pinia/nuxt": "^0.4.9",
+    "@sidebase/nuxt-auth": "^0.6.0-beta.0",
+    "@tailvue/nuxt": "^0.1.68",
     "@tailwindcss/typography": "^0.5.9",
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^18",
     "@vueuse/nuxt": "^10.1.0",
     "daisyui": "^2.51.6",
     "flowbite": "^1.6.5",
-    "nuxt": "^3.4.3",
+    "nuxt": "^3.5.0",
     "nuxt-headlessui": "^1.1.4",
-    "pinia": "^2.0.35"
+    "nuxt-icon": "^0.4.0",
+    "nuxt-windicss": "^2.6.1",
+    "pinia": "^2.0.35",
+    "prisma": "^4.14.0",
+    "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "@nuxtjs/google-fonts": "^3.0.0",
+    "@prisma/client": "^4.14.0",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "next-auth": "4.21.1",
+    "nuxt-icons": "^3.2.1",
+    "universal-cookie": "^4.0.4",
+    "vue-toastification": "^2.0.0-rc.5"
   }
 }
