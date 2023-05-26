@@ -80,10 +80,8 @@ definePageMeta({
   // middleware: "is-login",
 });
 
-// import { useCookies } from "@vueuse/integrations/useCookies";
-// const counter = useCookie("jwt");
-// const cookies = useCookies(["jwt"]);
-// console.warn("cookies", cookies);
+import { useAuthStore } from "@/stores/auth";
+const { setToken } = useAuthStore();
 
 const email = ref("");
 const password = ref("");
@@ -108,8 +106,9 @@ const signIn = async () => {
   }
 
   if (data.value.status == "success") {
+    await setToken(data.value.token);
     loading.value = false;
-    // counter.value = data.value.token;
+    await navigateTo("/");
   }
 };
 </script>

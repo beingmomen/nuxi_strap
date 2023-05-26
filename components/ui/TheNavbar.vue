@@ -8,6 +8,7 @@
     <div class="flex-1">
       <!-- <a class="btn btn-ghost normal-case text-xl">daisyUI</a> -->
       <button class="btn mx-5" @click="signOut">Logout</button>
+      <!-- <p>{{ token }}</p> -->
     </div>
     <div class="flex-none"></div>
   </nav>
@@ -18,10 +19,11 @@ import { useWindowSize } from "@vueuse/core";
 const sidebar = useToggleSidebar();
 const fixedSidebar = useFixedSidebar();
 const { width, height } = useWindowSize();
+import { useAuthStore } from "@/stores/auth";
+const { signOut } = useAuthStore();
 
-// Auth
-// const { status, data, signIn, signOut } = useAuth();
-// const loggedIn = computed(() => status.value === "authenticated");
+// const token = useCookie("jwt");
+// const token = useCookie("jwt");
 
 const toggleSidebar = () => {
   if (width.value > 1024) {
@@ -30,6 +32,11 @@ const toggleSidebar = () => {
     fixedSidebar.value = !fixedSidebar.value;
   }
 };
+
+// const signOut = () => {
+//   console.warn("token", token.value);
+//   token.value = null;
+// };
 
 watchEffect(() => {
   if (width.value > 1024) {
