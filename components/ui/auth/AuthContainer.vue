@@ -4,7 +4,11 @@
       <div class="m-8 flex-1 me-0 bg-slate-100 rounded-2xl">
         <div class="h-full flex justify-center items-center">
           <div class="max-w-[441px]">
-            <nuxt-img class="object-contain" :src="`/auth/${image}`" />
+            <nuxt-img
+              class="object-contain"
+              :src="`images/auth/${image}`"
+              :alt="image"
+            />
           </div>
         </div>
       </div>
@@ -16,7 +20,7 @@
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
           <nuxt-img
             class="mx-auto h-16 w-auto"
-            src="/logo.png"
+            src="images/logo.png"
             alt="Your Company"
           />
 
