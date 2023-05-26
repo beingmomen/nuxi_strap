@@ -33,7 +33,7 @@ export default defineNuxtConfig({
     ],
     image: {
         // Options
-        dir: 'public/imgs'
+        // dir: 'public'
     },
     // auth: {
     //     // options: {
