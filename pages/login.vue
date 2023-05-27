@@ -101,6 +101,7 @@ const signIn = async () => {
   });
 
   if (error.value) {
+    console.warn("error.value", {...error.value});
     loading.value = false;
     return useToast(error.value?.statusMessage, "error");
   }
