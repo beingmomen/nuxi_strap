@@ -101,9 +101,9 @@ const signIn = async () => {
   });
 
   if (error.value) {
-    console.warn("error.value", {...error.value});
+    console.warn("error.value", { ...error.value });
     loading.value = false;
-    return useToast(error.value?.statusMessage, "error");
+    return useToast(error.value.data?.statusMessage, "error");
   }
 
   if (data.value.status == "success") {
