@@ -11,7 +11,7 @@
             /> -->
             <img
               class="object-contain"
-              :src="`images/auth/${image}`"
+              :src="`/images/auth/${image}`"
               :alt="image"
             />
           </div>
@@ -30,7 +30,7 @@
           /> -->
           <img
             class="mx-auto h-16 w-auto"
-            src="images/logo.png"
+            src="/images/logo.png"
             alt="Your Company"
           />
 
