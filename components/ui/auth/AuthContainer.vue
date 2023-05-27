@@ -4,7 +4,12 @@
       <div class="m-8 flex-1 me-0 bg-slate-100 rounded-2xl">
         <div class="h-full flex justify-center items-center">
           <div class="max-w-[441px]">
-            <nuxt-img
+            <!-- <nuxt-img
+              class="object-contain"
+              :src="`images/auth/${image}`"
+              :alt="image"
+            /> -->
+            <img
               class="object-contain"
               :src="`images/auth/${image}`"
               :alt="image"
@@ -18,7 +23,12 @@
         class="flex min-h-full flex-1 flex-col justify-center items-center py-12 m-auto max-w-[350px]"
       >
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-          <nuxt-img
+          <!-- <nuxt-img
+            class="mx-auto h-16 w-auto"
+            src="images/logo.png"
+            alt="Your Company"
+          /> -->
+          <img
             class="mx-auto h-16 w-auto"
             src="images/logo.png"
             alt="Your Company"
@@ -52,6 +62,10 @@ const props = defineProps({
     required: true,
   },
 });
+
+const router = useRoute();
+
+// console.warn("router", window.location.origin);
 </script>
 
 <style lang="scss" scoped>
