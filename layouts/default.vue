@@ -10,8 +10,10 @@
     <UiTheFullSidebar />
 
     <div class="grow">
-      <UiTheNavbar />
-      <slot />
+      <div class="container mx-auto pe-5">
+        <UiTheNavbar />
+        <slot />
+      </div>
     </div>
   </div>
 </template>

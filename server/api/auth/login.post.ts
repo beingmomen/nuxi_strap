@@ -11,7 +11,8 @@ export default defineEventHandler(async (event) => {
   const requiredFields = ["email", "password"];
   requiredFields.forEach(f => {
     if (!body[f]) {
-      return appError({ msg: `Invalid params`, code: 400 })
+      return appError({ msg: `The ${f} field is required`, code: 400 })
+
     }
   })
 

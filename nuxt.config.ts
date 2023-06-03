@@ -11,6 +11,12 @@ export default defineNuxtConfig({
         // '@fortawesome/fontawesome-svg-core/styles.css',
         '~/assets/style.scss'
     ],
+
+    imports: {
+        dirs: ['stores'],
+    },
+
+
     modules: [
 
         '@vueuse/nuxt',
@@ -18,6 +24,8 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         'nuxt-headlessui',
         '@pinia/nuxt',
+        // '@nuxthq/ui',
+
         // '@tailvue/nuxt',
         // 'nuxt-windicss',
         // '@sidebase/nuxt-auth',
@@ -31,27 +39,17 @@ export default defineNuxtConfig({
             }
         }]
     ],
+    pinia: {
+        autoImports: [
+            // automatically imports `defineStore`
+            'defineStore', // import { defineStore } from 'pinia'
+            ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+        ],
+    },
     image: {
         // Options
         // dir: 'public'
     },
-    // auth: {
-    //     // options: {
-    //     //     providers: [
-    //     //         {
-    //     //             name: "local",
-    //     //             credentials: {
-    //     //                 username: "your_username",
-    //     //                 password: "your_password",
-    //     //             },
-    //     //         },
-    //     //     ],
-    //     // },
-    // },
-
-    // alias: {
-    //     "assets": "/<rootDir>/assets",
-    // },
 
     runtimeConfig: {
         jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,

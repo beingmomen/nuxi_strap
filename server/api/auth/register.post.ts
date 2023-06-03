@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
     name: body.name,
     password: body.password,
     passwordConfirm: body.passwordConfirm,
-    image: body.image,
+    image: body.image || '~/assets/imgs/user.png',
     country: body.country,
     phone: body.phone,
     slug: textSlug

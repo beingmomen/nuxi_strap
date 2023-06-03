@@ -79,8 +79,6 @@ definePageMeta({
   layout: "auth",
   // middleware: "is-login",
 });
-
-import { useAuthStore } from "@/stores/auth";
 const { setToken } = useAuthStore();
 
 const email = ref("");
@@ -101,8 +99,8 @@ const signIn = async () => {
   });
 
   if (error.value) {
-    console.warn("error.value", { ...error.value });
     loading.value = false;
+
     return useToast(error.value.data?.statusMessage, "error");
   }
 

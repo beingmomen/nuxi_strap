@@ -9,12 +9,24 @@
         <h1 class="font-bold text-3xl">Nuxi Strap</h1>
       </NuxtLink>
     </div>
+    <ul class="menu menu-list py-4 pe-2 text-base-content">
+      <li class="menu-link">
+        <NuxtLink to="/">
+          <nuxt-icon class="text-[1.5rem]" name="home"></nuxt-icon>
+          <span class="menu-text">Home</span>
+        </NuxtLink>
+      </li>
+      <li class="menu-link">
+        <NuxtLink to="/activities">
+          <nuxt-icon class="text-[1.5rem]" name="grid"></nuxt-icon>
+          <span class="menu-text">Activities</span>
+        </NuxtLink>
+      </li>
+    </ul>
   </aside>
 </template>
 
 <script setup>
-import { ref } from "vue";
-
 const sidebar = useToggleSidebar();
 </script>
 

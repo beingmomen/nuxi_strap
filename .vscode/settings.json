@@ -1,4 +1,7 @@
 {
-  "cSpell.words": ["nuxi"],
+  "cSpell.words": [
+    "composables",
+    "nuxi"
+  ],
   "vue.codeActions.enabled": false
 }
