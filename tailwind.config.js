@@ -5,6 +5,8 @@ module.exports = {
   content: [
     "./node_modules/flowbite.{js,ts}",
     "node_modules/tailvue/dist/tailvue.es.js",
+    "./src/**/*.{html,js}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
   ],
   theme: {
     minWidth: {
@@ -25,6 +27,7 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("daisyui"),
     require("flowbite/plugin"),
+    require("tw-elements/dist/plugin.cjs"),
   ],
   daisyui: {
     styled: true,

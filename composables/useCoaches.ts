@@ -1,7 +1,7 @@
 
 
-export const useActivities = () => {
-  const { setAllData } = useActivitiesStore();
+export const useCoaches = () => {
+  const { setAllData } = useCoachesStore();
 
 
   const image = ref(null);
@@ -25,7 +25,7 @@ export const useActivities = () => {
       name: name.value,
       image: image.value,
     };
-    const { data, error } = await useFetch("/api/activities", {
+    const { data, error } = await useFetch("/api/coaches", {
       method: "POST",
       body: body,
     });
@@ -35,7 +35,7 @@ export const useActivities = () => {
     }
 
     useToast(data.value?.message);
-    await navigateTo("/activities")
+    // await navigateTo("/coaches")
 
 
   }
@@ -47,7 +47,7 @@ export const useActivities = () => {
       image: image.value,
     };
 
-    const { data, error } = await useFetch(`/api/activities/${id}`, {
+    const { data, error } = await useFetch(`/api/coaches/${id}`, {
       method: "POST",
       body: body,
     });
@@ -57,13 +57,13 @@ export const useActivities = () => {
     }
 
     useToast(data.value?.message);
-    await navigateTo("/activities")
+    await navigateTo("/coaches")
 
 
   }
 
   const getAll = async () => {
-    const { data, error } = await useFetch("/api/activities");
+    const { data, error } = await useFetch("/api/coaches");
 
     if (error.value) {
       return useToast(error.value.data?.statusMessage, "error");
@@ -74,7 +74,7 @@ export const useActivities = () => {
 
 
   const showOne = async (id: any) => {
-    const { data, error } = await useFetch(`/api/activities/${id}`);
+    const { data, error } = await useFetch(`/api/coaches/${id}`);
 
     if (error.value) {
       return useToast(error.value.data?.statusMessage, "error");
@@ -85,7 +85,7 @@ export const useActivities = () => {
 
 
   const deleteOne = async (id: any) => {
-    const { data, error } = await useFetch(`/api/activities/${id}`, {
+    const { data, error } = await useFetch(`/api/coaches/${id}`, {
       method: 'POST',
     });
 

@@ -22,10 +22,10 @@
           <div class="flex items-center">
             <nuxt-icon class="text-[1.5rem]" name="chevron-right"></nuxt-icon>
             <NuxtLink
-              to="/activities"
+              to="/coaches"
               class="inline-flex items-center text-sm font-medium text-gray-700 dark:text-gray-800"
             >
-              Activities
+              Coaches
             </NuxtLink>
           </div>
         </li>
@@ -36,7 +36,7 @@
             <span
               class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400"
             >
-              Update
+              Create
             </span>
           </div>
         </li>
@@ -47,20 +47,31 @@
       class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"
     >
       <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
-        You can create activity
+        You can create coach
       </h5>
 
       <div class="grid grid-cols-1 gap-4">
         <FormInput
           v-model="name"
-          label="Activity name"
-          placeholder="Activity name"
-          icon="activity"
+          label="Coach name"
+          placeholder="Coach name"
+          icon="coach"
         />
+
+        <FormInput
+          v-model="name"
+          label="Start date"
+          placeholder="Start date"
+          icon="date"
+        />
+
+        <div>
+          <FormTheSelect />
+        </div>
 
         <FormInputFile
           v-model="image"
-          label="Activity image"
+          label="Coach image"
           :current-image="currentImage"
         />
       </div>
@@ -69,7 +80,7 @@
         <button
           type="button"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center"
-          @click="updateOne(id)"
+          @click="create"
         >
           <svg
             aria-hidden="true"
@@ -85,7 +96,7 @@
             ></path>
           </svg>
 
-          Update
+          Create
         </button>
       </div>
     </div>
@@ -93,24 +104,12 @@
 </template>
 
 <script setup>
-import { useActivities } from "@/composables/useActivities";
-const { name, image, updateOne, showOne } = useActivities();
+import { useCoaches } from "@/composables/useCoaches";
+// import { useCoaches } from "@/composables/useCoaches";
+
+const { name, image, create } = useCoaches();
 
 const currentImage = ref([]);
-const { params } = useRoute();
-
-const id = ref(null);
-
-if (params.id.length > 24) {
-  id.value = params.id.split("-").at(-1);
-} else {
-  id.value = params.id;
-}
-
-const { data } = await showOne(id.value);
-name.value = data.name;
-image.value = data.image;
-currentImage.value.push({ image: data.image, name: data.name });
 </script>
 
 <style lang="scss" scoped>

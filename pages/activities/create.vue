@@ -95,10 +95,6 @@
 <script setup>
 import { useActivities } from "@/composables/useActivities";
 
-const { params } = useRoute();
-
-console.warn("route", params);
-
 const { name, image, create } = useActivities();
 
 const currentImage = ref([]);

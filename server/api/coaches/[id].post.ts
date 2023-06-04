@@ -1,4 +1,4 @@
-import { deleteActivity, updateActivity } from "../../db/activities.js";
+import { deleteCoach, updateCoach } from "../../db/coaches.js";
 
 
 
@@ -11,13 +11,13 @@ export default defineEventHandler(async (event) => {
   // Update item if there is body
   if (body) {
     console.log('id :>> ', id);
-    const activity = await updateActivity(body, id)
-    console.warn('activity', activity);
-    return activity
+    const coach = await updateCoach(body, id)
+    console.warn('coach', coach);
+    return coach
   } else {
     // Delete item if not found body
 
-    const activity = await deleteActivity(id)
+    const coach = await deleteCoach(id)
     return {
       message: 'Deleted successfully'
     }

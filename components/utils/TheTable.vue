@@ -74,17 +74,19 @@
               {{ row[key] }}
             </td>
           </template>
-          <ModalsDelete
-            :the-id="row.id"
-            @deleteItem="$emit('deleteItem', row.id)"
-          >
-            <template #message>
-              Are you sure you want to delete this item
-              <span class="text-blue-700"> {{ row.name }}</span>
-              ?
-            </template>
-          </ModalsDelete>
-          <Teleport to="body"> </Teleport>
+
+          <Teleport to="body">
+            <ModalsDelete
+              :the-id="row.id"
+              @deleteItem="$emit('deleteItem', row.id)"
+            >
+              <template #message>
+                Are you sure you want to delete this item
+                <span class="text-blue-700"> {{ row.name }}</span>
+                ?
+              </template>
+            </ModalsDelete>
+          </Teleport>
         </tr>
       </tbody>
       <!-- foot -->
@@ -119,11 +121,6 @@ const props = defineProps({
   },
 });
 defineEmits(["deleteItem"]);
-
-const test = async (row) => {
-  console.warn("tests", id.target);
-  await navigateTo("/");
-};
 </script>
 
 <style lang="scss" scoped>

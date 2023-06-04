@@ -10,7 +10,6 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-
     "@nuxt/image": "^0.7.1",
     "@nuxt/image-edge": "^1.0.0-28020728.5df24eb",
     "@nuxthq/ui": "^2.2.1",
@@ -26,12 +25,12 @@
     "nuxt": "^3.5.0",
     "nuxt-headlessui": "^1.1.4",
     "nuxt-icon": "^0.4.0",
-    "nuxt-windicss": "^2.6.1"
+    "nuxt-windicss": "^2.6.1",
+    "prisma": "^4.15.0"
   },
   "dependencies": {
-    "prisma": "^4.14.1",
     "@nuxtjs/google-fonts": "^3.0.0",
-    "@prisma/client": "^4.14.1",
+    "@prisma/client": "^4.15.0",
     "bcrypt": "^5.1.0",
     "daisyui": "^2.51.6",
     "datatables.net-vue3": "^2.1.0",

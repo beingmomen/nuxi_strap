@@ -1,4 +1,4 @@
-import { createActivity } from "../../db/activities.js";
+import { createCoach } from "../../db/coaches.js";
 import { slug } from "../../utils/slug.js";
 
 
@@ -6,11 +6,9 @@ import { slug } from "../../utils/slug.js";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
 
-  // console.log('body :>> ', body);
-
 
   // 1) Check if email and password exist
-  const requiredFields = ["name", "image"];
+  const requiredFields = ["name", "image", "date", 'activityId'];
 
   requiredFields.forEach(f => {
     if (!body[f]) {
@@ -21,19 +19,20 @@ export default defineEventHandler(async (event) => {
 
   const textSlug = slug(body.name)
 
-  const activity = await createActivity({
+  const coach = await createCoach({
     name: body.name,
-    // image: body.image || '/images/activity.png',
-    image: '/images/activity.png',
+    // image: body.image || '/images/coach.png',
+    image: '/images/coach.png',
     slug: textSlug
   })
 
 
-  // console.warn('activity', activity);
+
+  // console.warn('coach', coach);
   return {
     status: "success",
     message: 'تم الإضافة بنجاح',
-    data: activity
+    data: coach
   }
 
 

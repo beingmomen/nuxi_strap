@@ -1,17 +1,56 @@
 import { client, Prisma } from ".";
 
-export const createActivity = async (activityData, id) => {
+export const createCoach = async (coachData) => {
+  console.warn("test", coachData);
   try {
     const data = {
-      ...activityData,
+      ...coachData,
     };
 
-    const activity = await client.activity.create({
+    const coach = await client.coach.create({
       data,
     });
 
-    if (activity) {
-      return activity;
+    console.warn("coach", coach);
+
+    if (coach) {
+      return coach;
+    }
+  } catch (e) {
+    // console.warn("code", e.message);
+    // console.warn("clientVersion", e.clientVersion);
+    console.warn("check", e instanceof Prisma.PrismaClientValidationError);
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      const code = e.code;
+      const key = e.meta.target.split("_")[1];
+      // The .code property can be accessed in a type-safe manner
+      if (code === "P2002") {
+        return appError({
+          msg: `This ${key} exist, Try another one `,
+          code: 409,
+        });
+      }
+    } else if (e instanceof Prisma.PrismaClientValidationError) {
+      console.warn("message", e.message);
+    }
+  }
+};
+
+export const updateCoach = async (coachData, id) => {
+  try {
+    const data = {
+      ...coachData,
+    };
+
+    const coach = await client.coach.update({
+      where: {
+        id,
+      },
+      data,
+    });
+
+    if (coach) {
+      return coach;
     }
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
@@ -28,51 +67,20 @@ export const createActivity = async (activityData, id) => {
   }
 };
 
-export const updateActivity = async (activityData, id) => {
-  try {
-    const data = {
-      ...activityData,
-    };
-
-    const activity = await client.activity.update({
-      where: {
-        id,
-      },
-      data,
-    });
-
-    if (activity) {
-      return activity;
-    }
-  } catch (e) {
-    if (e instanceof Prisma.PrismaClientKnownRequestError) {
-      const code = e.code;
-      const key = e.meta.target.split("_")[1];
-      // The .code property can be accessed in a type-safe manner
-      if (code === "P2002") {
-        return appError({
-          msg: `This ${key} exist, Try another one `,
-          code: 409,
-        });
-      }
-    }
-  }
+export const getAllCoaches = () => {
+  return client.coach.findMany();
 };
 
-export const getAllActivities = () => {
-  return client.activity.findMany();
-};
-
-export const getActivity = async (id) => {
+export const getCoach = async (id) => {
   try {
-    const activity = await client.activity.findUnique({
+    const coach = await client.coach.findUnique({
       where: {
         id,
       },
     });
 
-    if (activity) {
-      return activity;
+    if (coach) {
+      return coach;
     }
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
@@ -90,17 +98,17 @@ export const getActivity = async (id) => {
   }
 };
 
-export const deleteActivity = async (id) => {
+export const deleteCoach = async (id) => {
   try {
-    const activity = await client.activity.delete({
+    const coach = await client.coach.delete({
       where: {
         id: id,
       },
     });
 
-    if (activity) {
-      console.warn("activityyyyyyyyyyy", activity);
-      return activity;
+    if (coach) {
+      console.warn("coachyyyyyyyyyy", coach);
+      return coach;
     }
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {

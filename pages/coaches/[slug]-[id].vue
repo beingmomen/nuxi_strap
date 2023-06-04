@@ -22,10 +22,10 @@
           <div class="flex items-center">
             <nuxt-icon class="text-[1.5rem]" name="chevron-right"></nuxt-icon>
             <NuxtLink
-              to="/activities"
+              to="/coaches"
               class="inline-flex items-center text-sm font-medium text-gray-700 dark:text-gray-800"
             >
-              Activities
+              Coaches
             </NuxtLink>
           </div>
         </li>
@@ -93,8 +93,8 @@
 </template>
 
 <script setup>
-import { useActivities } from "@/composables/useActivities";
-const { name, image, updateOne, showOne } = useActivities();
+import { useCoaches } from "@/composables/useCoaches";
+const { name, image, updateOne, showOne } = useCoaches();
 
 const currentImage = ref([]);
 const { params } = useRoute();

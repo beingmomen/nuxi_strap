@@ -22,6 +22,12 @@
           <span class="menu-text">Activities</span>
         </NuxtLink>
       </li>
+      <li class="menu-link">
+        <NuxtLink to="/coaches">
+          <nuxt-icon class="text-[1.5rem]" name="coach"></nuxt-icon>
+          <span class="menu-text">Coaches</span>
+        </NuxtLink>
+      </li>
     </ul>
   </aside>
 </template>
